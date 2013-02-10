@@ -1,0 +1,52 @@
+<template name="forms">
+	<ul class="forms">
+		{{#each formItems}}
+		<li>
+        	{{#if isType "text"}}
+        		<div class="caption inline">{{caption}}:</div><input field="{{field}}" type="{{type}}" value="{{fieldValue ../.. field}}"/>
+        	{{/if}}
+        	{{#if isType "table"}}
+        		<div class="caption inline">{{caption}}:</div>
+        		<div class="inline"><table class="table table-bordered" border="1">
+    				<tr>
+    					<td></td>
+	        			{{#each fields}}
+        				<td>{{caption}}</td>
+						{{/each}}
+					</tr>
+        			{{#each fieldValue ../.. field}}
+    				<tr>
+    					<td class="actions">
+                            <div class="inline destroy">&nbsp;</div>
+                            <div class="inline edit">&nbsp;</div>
+                        </td>
+	        			{{#each ../fields}}
+        				<td>
+        					{{#if editing .. }}
+        						<input type="text" value="{{fieldValue ../.. field}}"/>
+        					{{else}}
+        						{{fieldValue ../.. field}}
+        					{{/if}}
+        				</td>
+						{{/each}}
+					</tr>
+					{{/each}}
+					<tr>
+						<td>
+							<input action="insert" type="button" value="Create"/>
+						</td>
+	        			{{#each ../fields}}
+        				<td>
+    						<input id="insert_{{field}}" type="text"/>
+        				</td>
+						{{/each}}
+					</tr>
+				</table></div>
+        	{{/if}}
+            {{#if isType "button"}}
+                <input action="{{field}}" type="button" value="{{caption}}"/>
+            {{/if}}
+		</li>
+		{{/each}}
+	</ul>
+</template>

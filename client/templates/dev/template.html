@@ -1,0 +1,13 @@
+<template name="dev">
+	<div class="inline">
+		(Dev{{#if noConsole}} [NO CONSOLE DTECTED]{{/if}}:&nbsp;
+		<a href="#admin">admin</a>, 
+		<a href="#super">super</a>, 
+		<a href="#user">user</a>, 
+		<a href="#reset">reset</a>,
+		<label class="inline" for="debug">
+			<input name="debug" type="checkbox" id="debug" checked='{{debug}}'>Debug
+		</label>,
+		<a href="#test">test</a>)
+	</div>
+</template>

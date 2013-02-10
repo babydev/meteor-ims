@@ -1,0 +1,9 @@
+<template name="menu">
+	<ul class="nav nav-tabs">
+		{{#each menuItems}}
+		<li class="{{selected}}">
+			<a href="#">{{title}}</a>
+		</li>
+		{{/each}}
+	</ul>
+</template>
