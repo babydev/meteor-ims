@@ -51,18 +51,25 @@ table {
 	vertical-align: top;
 }
 
-.destroy {
+.delete {
     background: url('/destroy.png') no-repeat 0 0;
     width: 30px;
 }
 
-.edit {
-    background: url('/pencil.png') no-repeat 0 0;
-    background-size: 100% auto;
-    width: 30px;
-    background-position: 0 -10px;
+.delete:hover {
+    background-position: 0 -20px;
 }
 
-.destroy:hover {
-    background-position: 0 -20px;
+.edit {
+    background: url('/pencil.png') no-repeat 0 0;
+}
+
+.editing {
+    background: url('/update.jpg') no-repeat 0 0;
+}
+
+.editing, .edit {
+    background-size: 100% auto;
+    background-position: 0 -7px;
+    width: 30px;
 }

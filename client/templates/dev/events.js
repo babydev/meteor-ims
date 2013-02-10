@@ -9,7 +9,9 @@ Template.dev.events({
     login('admin@example.com');
   },
   'click a[href=#reset]': function() {
-      callMethod('reset');
+    var user = Meteor.user(); email = user ? user.emails[0].address : null;
+    callMethod('reset');
+    Meteor.loginWithPassword(email, '123456');
   },
   'click a[href=#test]': function() {
       callMethod('test');

@@ -3,7 +3,7 @@ Template.forms.formItems = function() {
 }
 
 Template.forms.isType = function(type) {
-  return this.type == type;
+	return this.type == type;
 }
 
 Template.forms.fieldValue = function(context, field) {
@@ -12,11 +12,10 @@ Template.forms.fieldValue = function(context, field) {
 	}
 
 	_.each(field.split('.'), function(part) { 
-		if (context[part]) {
-			context = context[part];
+		if (context && typeof(context[part]) == 'undefined') {
+			debug('error getting fileValue, field: ' + field + ', context:', context);
 		} else {
-			return debug('error getting fileValue, field: ' + 
-				field + ', context:', context);
+			context = context[part];
 		}
 	});
 
@@ -24,5 +23,5 @@ Template.forms.fieldValue = function(context, field) {
 }
 
 Template.forms.editing = function (context) {
-  return Session.equals('editing_listname', JSON.stringify(context));
+	return editing(context);
 };
