@@ -8,7 +8,11 @@
             {{/if}}{{#if isType "table"}}
                 {{#with context ../..}}{{>table}}{{/with}}
         	{{/if}}{{#if isType "button"}}
+                {{#if method}}
+                <input class="method" method={{method}} type="button" value="{{caption}}"/>
+                {{else}}
                 <input class="{{field}}" type="button" value="{{caption}}"/>
+                {{/if}}
             {{/if}}
 		</li>
 		{{/each}}

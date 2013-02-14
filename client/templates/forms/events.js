@@ -8,5 +8,10 @@ Template.forms.events({
     });
 
     query('$set', data);
+  },
+  'click .method': function(e) {
+  	Meteor.call($(e.target).attr('method'), function() {
+    	debug(arguments);
+  	});
   }
 });

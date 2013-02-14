@@ -38,10 +38,3 @@ function createUser(email, password, options) {
 		$set: options
 	});
 }
-
-function initCollection(collection, values) {
-	collection.remove({});
-	_.each(values, function(value) {
-		collection.insert(value);
-	});
-}

@@ -53,6 +53,11 @@ formItems = [
 		field: 'role',
 		type: 'text'
 	}]
+}, {
+	menuKey: 'menus',
+	caption: 'Update Menus',
+	method: 'updateMenus',
+	type: 'button'
 }, 
 // FormItems
 {

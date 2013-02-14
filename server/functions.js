@@ -14,3 +14,10 @@ var isRole = function(user, role){
 
 	return false;
 }
+
+function initCollection(collection, values) {
+	collection.remove({});
+	_.each(values, function(value) {
+		collection.insert(value);
+	});
+}
