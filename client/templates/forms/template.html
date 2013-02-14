@@ -1,64 +1,14 @@
 <template name="forms">
 	<ul class="forms">
-		{{#each formItems}}
+		{{#each meta}}
 		<li>
         	{{#if isType "text"}}
-        		<div class="caption inline">{{caption}}:</div>
-                <input 
-                    field="{{field}}" 
-                    type="{{type}}" 
-                    value="{{fieldValue ../.. field}}"/>
-        	{{/if}}
-        	{{#if isType "table"}}
-        		<div class="caption inline">{{caption}}:</div>
-        		<div class="inline">
-                    <table class="table table-bordered" border="1">
-        				<tr>
-        					<td></td>
-    	        			{{#each fields}}
-            				<td>{{caption}}</td>
-    						{{/each}}
-    					</tr>
-            			{{#each fieldValue ../.. field}}
-        				<tr>
-        					<td>
-                                <div action="delete" class="inline delete">&nbsp;</div>
-                                <div action="edit" class="inline edit{{#if editing .}} editing{{/if}}">&nbsp;</div>
-                            </td>
-    	        			{{#each ../fields}}
-            				<td>
-            					{{#if editing .. }}
-            						<input
-                                        type="text" 
-                                        field="{{field}}" 
-                                        originalValue="{{fieldValue ../.. field}}"
-                                        value="{{fieldValue ../.. field}}"/>
-            					{{else}}
-                                    <span
-                                        field="{{field}}" 
-                                        value="{{fieldValue ../.. field}}">
-                                        {{fieldValue ../.. field}}
-                                    </span/>
-            					{{/if}}
-            				</td>
-    						{{/each}}
-    					</tr>
-    					{{/each}}
-    					<tr>
-    						<td>
-    							<div action="insert" class="inline edit editing">&nbsp;</div>
-    						</td>
-    	        			{{#each ../fields}}
-            				<td>
-        						<input field="{{field}}" type="text"/>
-            				</td>
-    						{{/each}}
-    					</tr>
-    				</table>
-                </div>
-        	{{/if}}
-            {{#if isType "button"}}
-                <input action="{{field}}" type="button" value="{{caption}}"/>
+                <div class="caption inline">{{caption}}:</div>
+                <input class="form" field="{{field}}" type="text" value="{{value ../..}}"/>
+            {{/if}}{{#if isType "table"}}
+                {{#with context ../..}}{{>table}}{{/with}}
+        	{{/if}}{{#if isType "button"}}
+                <input class="{{field}}" type="button" value="{{caption}}"/>
             {{/if}}
 		</li>
 		{{/each}}

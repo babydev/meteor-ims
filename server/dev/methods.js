@@ -5,15 +5,15 @@ Meteor.methods({
 	},
 	
 	reset: function () {
-		initCollection(MenuItems, devData.menuItems);
-		initCollection(FormItems, devData.formItems);
+		initCollection(MenuItems, menuItems);
+		initCollection(FormItems, formItems);
 		Meteor.users.remove({});
 		createUser('admin@example.com', '123456', { 
 			roles: [ 'admin' ],
 			profile: {
 				admin: {
-					menuItems: devData.menuItems,				
-					formItems: devData.formItems				
+					menuItems: menuItems,				
+					formItems: formItems				
 				}
 			}
 		});
@@ -22,7 +22,7 @@ Meteor.methods({
 		});
 		createUser('user@example.com', '123456', {
 			roles: [ 'user' ], 
-			profile: devData.profiles[0] 
+			profile: profile 
 		});
 		return "done resetting";
 	}

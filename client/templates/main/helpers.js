@@ -1,5 +1,5 @@
 Template.main.helpers({
-	user: function(){
-		return Meteor.user();
+	'context': function () {
+		return { data: Meteor.user(), meta: FormItems.find() }
 	}
 });

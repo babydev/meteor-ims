@@ -1,0 +1,57 @@
+<template name="table">
+    {{#unless isNested}}
+    {{#if meta.caption }}<div class="caption inline">{{meta.caption}}:</div>{{/if}}
+    {{/unless}}
+    <div class="inline">
+        <table class="table table-bordered" border="1" field="{{meta.field}}">
+            <tr>
+                <td></td>
+                {{#each meta.fields}}
+                <td>{{caption}}</td>
+                {{/each}}
+            </tr>
+            {{#each data}}
+            <tr>
+                <td>{{../isNested}}
+                    {{#with eventContext ..}}
+                    <div class="inline delete">&nbsp;</div>
+                    <div class="inline edit{{#if editing row}} editing{{/if}}">&nbsp;</div>
+                    {{/with}}
+                </td>
+                {{#each ../meta.fields}}
+                <td>
+                    {{#if editing .. }}
+                        {{#if isType "text"}}
+                            <input type="text" field="{{field}}" value="{{value ../../..}}"/>
+                        {{/if}}
+                        {{#if isType "table"}}
+                            {{#with context ../../..}}{{>table}}{{/with}}
+                        {{/if}}
+                    {{else}}
+                        {{#if isType "text"}}
+                            <span field="{{field}}" value="{{value ../../..}}">{{value ../../..}}</span/>
+                        {{/if}}
+                        {{#if isType "table"}}
+                            {{#with context ../../..}}{{>table}}{{/with}}
+                        {{/if}}
+                    {{/if}}
+                </td>
+                {{/each}}
+            </tr>
+            {{/each}}
+            <tr>
+                <td>
+                    {{#with eventContext .}}
+                    <div class="inline create editing">&nbsp;</div>
+                    {{/with}}
+                </td>
+                {{#each meta.fields}}
+                <td>
+                    <input type="text" field="{{field}}"/>
+                </td>
+                {{/each}}
+            </tr>
+        </table>
+    </div>
+</template>
+

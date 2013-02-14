@@ -1,16 +1,12 @@
 Template.forms.events({
-  'click [action=update]': function () {
-    update();
-	},
-  'click [action=insert]': function () {
-    insert(this);
-  },
-  'click .destroy': function () {
-    //TODO
-    debug('todo destroy');
-  },
-  'click .edit': function () {
-    Session.set('editing_listname', JSON.stringify(this)); //TODO: finish
-    debug('todo edit');
+  'click .update': function(e) {
+    var data = {};
+
+    $(e.target).parents('.forms').find('.form').each(function(i, o) {
+      o = $(o);
+      data[o.attr('field')] = o.val();
+    });
+
+    query('$set', data);
   }
 });
