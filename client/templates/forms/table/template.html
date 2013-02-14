@@ -1,7 +1,5 @@
 <template name="table">
-    {{#unless isNested}}
     {{#if meta.caption }}<div class="caption inline">{{meta.caption}}:</div>{{/if}}
-    {{/unless}}
     <div class="inline">
         <table class="table table-bordered" border="1" field="{{meta.field}}">
             <tr>
@@ -24,12 +22,18 @@
                         {{#if isType "text"}}
                             <input type="text" field="{{field}}" value="{{value ../../..}}"/>
                         {{/if}}
+                        {{#if isType "json"}}
+                            <input type="text" field="{{field}}" value="{{jsonValue ../../..}}"/>
+                        {{/if}}
                         {{#if isType "table"}}
                             {{#with context ../../..}}{{>table}}{{/with}}
                         {{/if}}
                     {{else}}
                         {{#if isType "text"}}
                             <span field="{{field}}" value="{{value ../../..}}">{{value ../../..}}</span/>
+                        {{/if}}
+                        {{#if isType "json"}}
+                            <span field="{{field}}" value="{{value ../../..}}">{{jsonValue ../../..}}</span/>
                         {{/if}}
                         {{#if isType "table"}}
                             {{#with context ../../..}}{{>table}}{{/with}}

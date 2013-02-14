@@ -2,6 +2,10 @@ Template.table.value = function(context) {
 	return getValue(context, this.field);
 }
 
+Template.table.jsonValue = function(context) {
+	return JSON.stringify(getValue(context, this.field));
+}
+
 Template.table.editing = function (context) {
 	return editing.get(context);
 };

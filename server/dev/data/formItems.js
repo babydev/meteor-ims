@@ -4,17 +4,20 @@ formItems = [
 	menuKey: 'profile',
 	caption: 'First Name',
 	field: 'profile.firstName',
-	type: 'text'
+	type: 'text',
+	order: 1
 }, {
 	menuKey: 'profile',
 	caption: 'Last Name',
 	field: 'profile.lastName',
-	type: 'text'
+	type: 'text',
+	order: 2
 }, {
 	menuKey: 'profile',
 	caption: 'Age',
 	field: 'profile.age',
-	type: 'text'
+	type: 'text',
+	order: 3,
 }, {
 	menuKey: 'profile',
 	caption: 'Phones list',
@@ -28,12 +31,14 @@ formItems = [
 		caption: 'extension #',
 		field: 'extension',
 		type: 'text'
-	}]
+	}],
+	order: 4
 }, {
 	menuKey: 'profile',
 	caption: 'Update',
 	field: 'update',
-	type: 'button'
+	type: 'button',
+	order: 5
 }, 
 // MenuItems
 {
@@ -52,12 +57,18 @@ formItems = [
 		caption: 'Role',
 		field: 'role',
 		type: 'text'
-	}]
+	}, {
+		caption: 'Order',
+		field: 'order',
+		type: 'text'
+	}],
+	order: 1
 }, {
 	menuKey: 'menus',
 	caption: 'Update Menus',
 	method: 'updateMenus',
-	type: 'button'
+	type: 'button',
+	order: 2
 }, 
 // FormItems
 {
@@ -73,6 +84,10 @@ formItems = [
 		field: 'field',
 		type: 'text'
 	}, {
+		caption: 'Method',
+		field: 'method',
+		type: 'text'
+	}, {
 		caption: 'Type',
 		field: 'type',
 		type: 'text'
@@ -83,7 +98,7 @@ formItems = [
 	}, {
 		caption: 'Fields',
 		field: 'fields',
-		type: 'table',
+		type: 'json', //'table'
 		fields: [{
 			caption: 'Caption',
 			field: 'caption',
@@ -97,7 +112,22 @@ formItems = [
 			field: 'type',
 			type: 'text'
 		}]
-	}]
+	}, {
+		caption: 'Role',
+		field: 'role',
+		type: 'text'
+	}, {
+		caption: 'Order',
+		field: 'order',
+		type: 'text'
+	}],
+	order: 1
+}, {
+	menuKey: 'forms',
+	caption: 'Update Forms',
+	method: 'updateForms',
+	type: 'button',
+	order: 2
 }, 
 // Registered Users
 {

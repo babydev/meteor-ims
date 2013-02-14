@@ -1,7 +1,7 @@
 menuItems = [{
 	title: 'My Profile',
 	key: 'profile',
-	role: 'user',
+	role: 'user'
 }, {
 	title: 'Welcome',
 	key: 'welcome',
@@ -9,11 +9,13 @@ menuItems = [{
 }, {
 	title: 'Menus',
 	key: 'menus',
-	role: 'admin'
+	role: 'admin',
+	order: 1
 }, {
 	title: 'Forms',
 	key: 'forms',
-	role: 'admin'
+	role: 'admin',
+	order: 2
 }, {
 	title: 'Users',
 	key: 'users',

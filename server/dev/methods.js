@@ -1,7 +1,7 @@
 Meteor.methods({
 	test: function () {
 		console.log(Meteor.user());
-		return "done test";
+		end("done test");
 	},
 	
 	reset: function () {
@@ -24,7 +24,7 @@ Meteor.methods({
 			roles: [ 'user' ], 
 			profile: profile 
 		});
-		return "done resetting";
+		end("done resetting");
 	}
 });
 
@@ -37,4 +37,9 @@ function createUser(email, password, options) {
 	}, {
 		$set: options
 	});
+}
+
+function end(message) {
+	console.log(message);
+	return message;
 }
