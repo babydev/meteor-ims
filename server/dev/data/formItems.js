@@ -131,12 +131,13 @@ formItems = [
 }, 
 // Registered Users
 {
-	menuKey: 'super',
+	menuKey: 'users',
 	type: 'table',
-	field: 'profile.super.users',
+	//field: 'profile.super.users',
+	model: 'Users',
 	fields: [{
-		caption: 'First Name',
-		field: 'profile.firstName',
+		caption: 'TItle',
+		field: 'title',
 		type: 'text'
 	}, {
 		caption: 'Last Name',

@@ -1,5 +1,5 @@
 Template.menu.menuItems = function() {
-	return MenuItems.find();
+	return getCollection('menuItems');
 }
 
 Template.menu.selected = function() {

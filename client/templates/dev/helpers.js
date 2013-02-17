@@ -1,7 +1,7 @@
-Template.dev.debug = function(type) {
+Template.dev.debug = function() {
   return Session.get('debug') ? 'checked' : '';
 }
 
-Template.dev.noConsole = function(type) {
+Template.dev.noConsole = function() {
   return !console || !console.log;
 }
